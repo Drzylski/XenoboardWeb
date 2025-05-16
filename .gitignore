@@ -1,3 +1,13 @@
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+#.env
+#.env.*
+#!.env.example
+
 # Logs
 logs
 *.log
@@ -87,8 +97,12 @@ web_modules/
 .next
 out
 
-# Nuxt.js build / generate output
+# Nuxt dev/build outputs
+.output
+.data
 .nuxt
+.nitro
+.cache
 dist
 
 # Gatsby files
@@ -134,3 +148,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Node dependencies
+node_modules
