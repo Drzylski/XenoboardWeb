@@ -1,5 +1,6 @@
-XenoboardWeb
-The frontend for the Xenoboard app
+# XenoboardWeb
+
+# The frontend for the Xenoboard app
 
 # Nuxt Minimal Starter
 
