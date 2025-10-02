@@ -1,5 +1,11 @@
 <template>
-  <ModalBody v-if="showPostTopicModal" @close-modal="closeNewTopicModal" :subComponentName="'NewTopicForm'"></ModalBody>
+  <div>
+  <ModalBody v-if="showPostTopicModal" @close-modal="closeNewTopicModal" :subComponentName="'NewTopicForm'" :modalWidth="80" :modalData="modalData">
+    <template v-slot:modal-title>
+      Post Topic
+    </template>
+  </ModalBody>
+
   <!--Upper image/header container-->
   <b-container class="p-3 header-background header-opacity" >
     <BRow>
@@ -21,7 +27,7 @@
     <!--Recent Topics Header-->
     <BRow class="section-header topics-opacity ps-3 pb-1 pt-1 pe-3">
       <BCol class="col-auto">
-        <h4 class="pt-2">Recent Topics {{ showPostTopicModal }}</h4>
+        <h4 class="pt-2">Recent Topics</h4>
       </BCol>
       <BCol >
           <BButton v-if="isAuthorized" class="post-button mt-1" @click="showNewTopicModal" >New Topic</BButton>
@@ -50,6 +56,7 @@
       </BCol>
     </BRow>
   </b-container>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -63,6 +70,21 @@ import { useCloseModal } from '../composables/CloseModal';
   const showPostTopicModal = ref(false);
   const isAuthorized = ref(true);
 
+  const modalData: IModalData = {
+    id: null,
+    title: null,
+    body: null,
+    author: null,
+    category: null,
+    tags: null,
+    update: null,
+    firstName: null,
+    lastName: null,
+    middleName: null,
+    dob: null,
+    email: null
+};
+
   const testTopic1 = ref({ 
     id: 1,
     title: 'My first post!',
@@ -72,8 +94,8 @@ import { useCloseModal } from '../composables/CloseModal';
     views: 2,
     replies: 0,
     image: null,
-    latestReplyName: null,
-    latestReplyDate: null,
+    latestReplyName: 'Damian Zylski',
+    latestReplyDate: new Date('05/08/2025'),
     tags: ['Test','Video Game'],
     sticky: true,
     closed: true,
@@ -90,8 +112,8 @@ import { useCloseModal } from '../composables/CloseModal';
     views: 34,
     replies: 0,
     image: null,
-    latestReplyName: null,
-    latestReplyDate: null,
+    latestReplyName: 'Seifer Almasy',
+    latestReplyDate: new Date('05/14/2025'),
     tags: ['Video Game'],
     sticky: false,
     closed: false
@@ -107,8 +129,8 @@ import { useCloseModal } from '../composables/CloseModal';
     views: 20,
     replies: 1,
     image: null,
-    latestReplyName: null,
-    latestReplyDate: null,
+    latestReplyName: 'Jan Brzenczyszczykiewicz',
+    latestReplyDate: new Date('05/30/2025'),
     tags: ['Test','Video Game'],
     sticky: false,
     closed: false
@@ -125,7 +147,6 @@ import { useCloseModal } from '../composables/CloseModal';
   }
 
   function closeNewTopicModal(){
-    console.log('Fuck you!');
     showPostTopicModal.value = useCloseModal(showPostTopicModal.value);
   }
 

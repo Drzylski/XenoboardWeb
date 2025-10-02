@@ -1,25 +1,29 @@
 <template>
   <div fluid class="modal-overlay">
-    <div class="modal-body">
+    <div class="modal-body modal-width-small">
     <div class="topcorner" style="color:white" @click="closeModal">
         <b-button  style="background-color: transparent;">
             X
         </b-button>
     </div>
-    <BRow>
-      <BCol >
-        <div class="header">
-          <h4 class="pt-2">
-              {{subComponent.title}}
-          </h4>
-        </div>
-      </BCol>
-    </BRow>
-    <BRow>
-      <BCol class="pt-2 pb-2">
-          <component :is="subComponent.component" />
-      </BCol>
-    </BRow>
+    <div>
+      <BRow>
+        <BCol >
+          <div class="header">
+            <h4 class="pt-2">
+                <slot name="modal-title">Modal</slot>
+            </h4>
+          </div>
+        </BCol>
+      </BRow>
+      <BRow >
+        <BCol class="pt-2 pb-2">
+            <component :is="subComponent.component" :modalData="modalData" >
+
+            </component>
+        </BCol>
+      </BRow>
+    </div>
     </div>
   </div>
 </template>
@@ -30,7 +34,9 @@ import { useCloseModal } from '../composables/CloseModal';
 const emit = defineEmits(['closeModal']);
 
 const props = defineProps<{
-  subComponentName: string
+  subComponentName: string,
+  modalWidth: number,
+  modalData: object
 }>()
 
 const name = props.subComponentName;

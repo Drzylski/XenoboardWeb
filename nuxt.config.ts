@@ -16,6 +16,11 @@ export default defineNuxtConfig({
     ]
   },
 
+  plugins: [
+    //{ src: '~/plugins/tinymce802/tinymce.min.js', mode: 'client' },
+    { src: '~/plugins/tinymce.client.ts', mode: 'client' },
+  ],
+
   app: {
     head: {
       title: 'Xenoboard',

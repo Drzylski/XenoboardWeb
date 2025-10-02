@@ -1,3 +1,5 @@
+@import "vue-multiselect/dist/vue-multiselect.min.css";
+
 @font-face {
     font-family: "Xenogears";
     src: local("Xenogears"),
@@ -24,6 +26,18 @@ body{
 
 }
 
+.multiselect {
+  min-height: 36px;
+}
+
+.multiselect__placeholder {
+  color: #777777;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0px;
+  padding: 0px;
+}
+
 .content-body{
     width: 90% !important;
     margin: auto;
@@ -47,6 +61,8 @@ body{
   bottom: 0;
   justify-content: center;
   background-color: rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* for Safari */
 }
 
 .modal-bodyy {
@@ -71,11 +87,48 @@ body{
   margin-bottom:auto;
   padding: 0px !important;
   border: 0.1px solid #888;
-  width: 80%; 
-  max-width: 80%;
   text-align: center;
   border-radius: 15px;
   color: #000000;
+}
+
+.modal-width-small{
+  width: 50%; 
+  max-width: 50%;
+}
+
+.modal-width-medium{
+  width: 60%; 
+  max-width: 60%;
+}
+
+.modal-width-large{
+  width: 80%; 
+  max-width: 80%;
+}
+
+.modal-width-mobile{
+  width: 100%; 
+  max-width: 100%;
+}
+
+.modal-label-text{
+  color:#FFFFFF !important; 
+  white-space: initial;
+  text-align: left !important;
+  font-size: 2.5vh;
+  padding-left: 5% !important;
+}
+
+.modal-input-text{
+  
+}
+
+.modal-scroll{
+  overflow-y: auto;
+  margin-bottom:10px;
+  max-height:80vh;
+  overflow-x:hidden;
 }
 
 .topcorner{
@@ -88,3 +141,24 @@ body{
 .xeno-text {
     font-family: "Xenogears" !important;
 }
+
+.submit-button{
+    display: flex !important;
+    justify-content: flex-end !important;
+    justify-items: flex-end !important;
+    align-items:flex-end !important;
+    align-content:flex-end !important;
+    margin-left: auto !important;
+    border: 1px solid #BBBBBB !important;
+    background-color: #404F56 !important;
+    opacity: 1 !important;
+    color: #DDDDDD !important;
+  }
+
+  .submit-button:hover {
+    background-color: #202F36 !important;
+  }
+
+  .blur-effect{
+    filter: blur(5px);
+  }
