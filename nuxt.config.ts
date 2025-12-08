@@ -53,6 +53,12 @@ export default defineNuxtConfig({
     },
   },
 
+  vuestic: {
+    config: {
+      // Config here
+    },
+  },
+
   modules: [
     '@nuxt/icon',
     '@nuxt/image',
@@ -63,6 +69,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@bootstrap-vue-next/nuxt',
     '@pinia/nuxt',
-    '@vesp/nuxt-fontawesome'
+    '@vesp/nuxt-fontawesome',
+    '@vuestic/nuxt'
   ]
 })

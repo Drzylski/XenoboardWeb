@@ -57,6 +57,17 @@
       </BCol>
     </BRow>
 
+    <!--Files-->
+    <BRow class="pt-3">
+      <BCol class="pt-2 pb-2 col-2 modal-label-text">
+          <label class="label label-default" for="formTags">Files:</label>
+      </BCol>
+      <BCol class="pt-2 pb-2  pe-5">
+          <FileUploadAgent v-model="files"></FileUploadAgent>
+      </BCol>
+    </BRow>
+    {{ files }}
+
     <!--Submit Button-->
     <BRow class="pt-3">
       <BCol class="pt-2 pb-2  pe-5">
@@ -72,12 +83,14 @@ import { BFormTextarea, BInput } from 'bootstrap-vue-next';
 import Multiselect from 'vue-multiselect';
 //import editor from '~/plugins/tinymce-vue';
 import TinyEditor from './TinyEditor.vue';
+import FileUploadAgent from './FileUploadAgent.vue';
 //import TinyEditor from './TinyEditor.vue';
 
 const subject = ref<string>();
 const body = ref<string>();
 const category = ref<number>();
 const tags = ref<string[]>([]);
+const files = ref<File[]>([]);
 const formValid = ref<boolean>(false);
 
 const catOptions = ref([

@@ -7,16 +7,16 @@
   </ModalBody>
 
   <!--Upper image/header container-->
-  <b-container class="p-3 header-background header-opacity" >
-    <BRow>
-      <BCol class="col-3">
+  <b-container class="header-background header-opacity" >
+    <BRow class="header-image p-3">
+      <BCol class="col-sm-3 col-12 header-logo ">
          <svg height="150" width="250" xmlns="http://www.w3.org/2000/svg">
           <image height="150" width="250" href="~/assets/x.png" opacity="0.9" />
         </svg> 
       </BCol>
-      <BCol class="col-9 header-text">
-        <h1>Xenoboard</h1>
-        <h2>The ultimate source of knowledge</h2>
+      <BCol class="col-sm-9 col-12 header-text show" >
+        <h1 class="header-text-h1 xeno-text xeno-crazy-text">Xenoboard</h1>
+        <h2 class="header-text-h2" >The ultimate source of knowledge</h2>
       </BCol>
     </BRow>
   </b-container>
@@ -133,7 +133,7 @@ import { useCloseModal } from '../composables/CloseModal';
     latestReplyDate: new Date('05/30/2025'),
     tags: ['Test','Video Game'],
     sticky: false,
-    closed: false
+    closed: true
   });
 
   const topicList = ref([testTopic1, testTopic2, testTopic3]);
@@ -193,12 +193,86 @@ import { useCloseModal } from '../composables/CloseModal';
     align-items: center;
     text-align: center;
     max-width: none;
+    opacity: 0.6;
+    transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    position: relative;
+
   }
+
+   .header-image {
+
+   }
+
+   .header-background::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("~/assets/stars.gif") ;
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+    z-index: -1;
+    border-radius: 10px 10px 10px 10px;
+   }
+
+   .header-logo svg{
+    opacity: 1;
+    transition: opacity 1s;
+   }
+
+  .header-background:hover::after {
+    opacity: 1;
+   }
+
+  .header-background:hover svg{
+    opacity: 0.3 !important;
+    transition: opacity 1s;
+  } 
+
+   @keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
   .header-text {
     text-align: center;
     padding-right: 45vh; 
     padding-top: 3vh;
+  }
+
+  .header-text-h1{
+    font-size: 32px;
+  }
+
+   .header-text-h2{
+    font-size: 24px;
   }
 
   .topics-opacity{
@@ -234,6 +308,10 @@ import { useCloseModal } from '../composables/CloseModal';
     border: 1px solid #FFFFFF;
     background-color: #2A3439;
     opacity: 1 !important;
+  }
+
+   .post-button:hover{
+    background-color: #14191C;
   }
 
 </style>
