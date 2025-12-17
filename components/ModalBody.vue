@@ -1,16 +1,16 @@
 <template>
-  <div fluid class="modal-overlay">
-    <div class="modal-body modal-width-small">
+  <div fluid class="modal-overlay" @click="closeModal">
+    <div class="modal-body modal-width-small" @click.stop>
     <div class="topcorner" style="color:white" @click="closeModal">
-        <b-button  style="background-color: transparent;">
+        <b-button class="modal-close-button" style="background-color: transparent;">
             X
         </b-button>
     </div>
     <div>
       <BRow>
         <BCol >
-          <div class="header">
-            <h4 class="pt-2">
+          <div class="modal-header">
+            <h4 class="pt-md-2 pt-0" >
                 <slot name="modal-title">Modal</slot>
             </h4>
           </div>
@@ -64,7 +64,7 @@ function closeModal() {
 
 <style scoped>
 
-  .header {
+  .modal-header {
     color:#BBBBBB !important; 
     width:100%;
     padding-top: 5px;
@@ -72,6 +72,18 @@ function closeModal() {
     background: #404F56;
     border-bottom:2px solid #6B8491;
     border-radius: 15px 15px 0 0 ;
+    text-align: center ;
+    align-items: center ;
+    display: block;
+  }
+
+  .modal-close-button{
+    padding: 5px 12px 5px 12px;
+  }
+
+  .modal-close-button:hover{
+    background-color: #202F36 !important;
+
   }
 
 </style>

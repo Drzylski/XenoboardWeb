@@ -122,7 +122,7 @@ import { useCloseModal } from '../composables/CloseModal';
   const testTopic3 = ref({
     id: 3,
     uuid: '9ebc2cd6-b555-414a-85aa-b6c2ce5a1be8',
-    title: 'A deep introspection on the cognitive effects of video games',
+    title: 'A deep introspection on the cognitive effects of video games A deep introspection on the cognitive effects of video games A deep introspection on the cognitive effects of video games',
     author: 'Ted Smith',
     createdDate: new Date('05/18/2025'),
     category: 'Discussions',

@@ -1,16 +1,27 @@
 <template>
-  <b-container fluid class="footer-body p-3">
+  <b-container fluid class="footer-body p-3 mt-1">
     <BRow>
-      <BCol class="col-6">
+      <BCol class="col-6 desktop-footer">
           <span class="xeno-text logo-text">Xenoboard</span>
       </BCol>
-      
-      <BCol class="col-6 footer-links" >
+      <BCol class="col-6  footer-links desktop-footer" >
           <span class="p-3">Contact</span><wbr>
           <span class="p-3">About</span><wbr>
           <span class="p-3">Help</span><wbr>
           <span class="p-3 ">Terms&nbsp;of&nbsp;Use</span><wbr>
           <span class="p-3 ">Privacy&nbsp;Policy</span><wbr>
+      </BCol>
+      <BCol class="mobile-footer">
+
+        <span class="xeno-text logo-text">Xenoboard</span><br></br>
+        <div class="footer-links">
+          <span class="p-3">Contact</span><wbr>
+          <span class="p-3">About</span><wbr>
+          <span class="p-3">Help</span><wbr>
+          <span class="p-3 ">Terms&nbsp;of&nbsp;Use</span><wbr>
+          <span class="p-3 ">Privacy&nbsp;Policy</span><wbr>
+        </div>
+
       </BCol>
     </BRow>
     <BRow>
@@ -48,8 +59,25 @@
   padding-right: 5%;
 }
 
+.p-3:hover{
+  color: #777777;
+  transition: color 1s;
+}
+
+.p-3 {
+  transition: color 1s;
+}
+
 .footer-link{
   white-space: initial;
+}
+
+.desktop-footer{
+  display: inline-block;
+}
+
+.mobile-footer{
+  display: none;
 }
 
 </style>

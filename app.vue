@@ -17,4 +17,8 @@
 
 <style>
 
+  html {
+    background-color: #404F56;
+  }
+
 </style>

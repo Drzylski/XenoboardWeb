@@ -51,6 +51,7 @@ body{
 .footer-body{
     background-color: #404F56 !important;
     color: #EEEEEE !important;
+    
 }
 
 .modal-overlay {
@@ -90,9 +91,9 @@ body{
   margin-top: auto;
   margin-bottom:auto;
   padding: 0px !important;
-  border: 0.1px solid #888;
+  border-bottom:20px solid #404F56;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 20px;
   color: #000000;
 }
 
@@ -264,13 +265,65 @@ body{
     .header-body {
      
     }
+
+    .title-text{
+      font-size: 3.7vh !important;
+      line-height: 2.0vw !important; 
+    }
+
+    .card-title{
+      
+    }
+
+    .modal-width-small{
+      width: 80% !important; 
+      max-width: 80% !important;
+    }
+
+    .modal-label-text{
+      font-size: 3.5vh;
+    }
+
+    .modal-body {
+      height: 102.5vh !important;
+    }
   }
 
   @media (max-width: 799px) {
 
+    .content-body {
+      padding: 3px !important;
+    }
+
+
     .nav-button{
       font-size: 7.0vh !important;
       padding: 5px !important;
+    }
+
+    .title-text{
+      line-height: 2.0vw !important; 
+    }
+
+    .card-title{
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .card-info{
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      text-align:unset !important;
+    }
+
+    .card-author-image{
+      width: 15vh;
+      height: 15vh;
+    }
+
+    .card-author-img{
+      width: 15vh;
+      height: 15.9vh;
     }
 
     .sidenav-button-text{
@@ -300,17 +353,125 @@ body{
      padding: 15px;
     }
 
-    
-
     .header-text{
       display: inline-block !important;
       padding: 1vh !important; 
       padding-top: 8vh !important;
     }
 
+     .mobile-replies{
+      display: inline-block !important;
+    }
+
+    .mobile-replydate{
+      display: block !important;
+    }
+
+    .desktop-replies{
+      display: none !important;
+    }
+
+    .card-body{
+      padding: 8px !important;
+    }
+
+    .info-text{
+      font-size: 2.8vh !important;
+    }
+
+    .replies{
+      font-size: 2.8vh !important;
+    }
+
+    .tag-card{
+
+    }
+
+    .modal-width-small{
+      width: 98% !important; 
+      max-width: 98% !important;
+    }
+
+    .modal-label-text{
+      font-size: 4.5vh;
+      padding-left: 20px !important;
+    }
+
+    .modal-body {
+      margin-top: 1px !important;
+      margin-bottom:1px !important;
+      padding-bottom: 1x !important;
+      height: 100% !important;
+      border-radius: 0%;
+      border: none;
+    }
+
+    .modal-header{
+      margin-top: 0px !important;
+      border-radius: 0% !important;
+    }
+
+    .modal-header h4{
+      font-size: 15px !important;
+    }
+
+    .topcorner{
+      top: 2px !important;
+    }
+
+    .modal-close-button{
+    padding: 0px 10px 0px 10px !important;
+    line-height: 22px !important;
+    height: 10% !important;
+  }
+
+  .desktop-footer{
+    display: none !important;
+  }
+
+  .mobile-footer{
+    display: inline-block !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .logo-text{
+    padding-left: 0 !important;
+    font-size: 2.5vw !important;
+  }
+
+  .footer-links{
+     padding-top: 10px !important;
+    text-align: center !important;
+    padding-right: 0 !important;
+    padding-bottom: 10px !important;
+    font-size: 4.5vh !important;
+  }
+
+  .copyright-text {
+    font-size: 4vh !important;
+  }
+
   }
 
   @media (max-width: 480px){
+
+    .discussion-symbol {
+      height: 20px !important;
+      width: 20px !important;
+    }
+
+    .closed-symbol {
+      height: 10px !important;
+      width: 10px !important;
+    }
+
+    .sticky-symbol {
+      height: 15px !important;
+      width: 15px !important;
+    }
+
     .header-logo{
       display: inline-block !important;
       margin-left: 3vw !important; 
@@ -334,4 +495,34 @@ body{
     .header-text-h2{
       font-size: 16px !important;
     }
+
+    .title-text{
+      font-size: 5.7vh !important;
+      line-height: 2.9vw !important; 
+    }
+
+    .card-author-image{
+      width: 17vh;
+      height: 17.8vh;
+    }
+
+    .card-author-img{
+      width: 17vh;
+      height: 18vh;
+    }
+
+    .modal-header h4{
+      font-size: 10px !important;
+    }
+
+    .topcorner{
+      top: -2px !important;
+    }
+
+    .modal-close-button{
+    padding: 0px 8px 0px 8px !important;
+    line-height: 17px !important;
+    }
+
+
   }

@@ -8,7 +8,6 @@
       </BCol>
       <BCol class="pt-2 pb-2  pe-5">
           <BInput id="formSubject" class="" type="text" v-model="subject"></BInput>
-          {{ subject }}
       </BCol>
     </BRow>
 
@@ -19,7 +18,6 @@
       </BCol>
       <BCol class="pt-2 pb-2  pe-5">
         <TinyEditor id="formBody" :image="false" :height="200" :menu-bar="true" :paste-as-text="true"  @editorvalue="(value) => body = value" v-model="body"> </TinyEditor>
-        {{ body }}
       </BCol>
     </BRow>
 
@@ -42,7 +40,6 @@
               v-model="category"
           >  
           </multiselect>
-          <span v-if="category != null">{{ category.value }}</span>
       </BCol>
     </BRow>
 
@@ -53,7 +50,6 @@
       </BCol>
       <BCol class="pt-2 pb-2  pe-5">
           <BFormTags id="formTags" input-id="formTags" placeholder="Enter tags for post, or leave blank" v-model="tags"></BFormTags>
-          {{ tags }}
       </BCol>
     </BRow>
 

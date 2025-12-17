@@ -16,6 +16,11 @@ declare global {
     },
   }
 
+  interface IBreadCrumb{
+    path: string;
+    title: string;
+  }
+
   const enum UserType {
     User,
     Admin,
