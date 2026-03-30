@@ -1,2 +1,20 @@
 User-Agent: *
-Disallow:
+Disallow: /Admin/
+
+User-agent: *
+Allow: /
+
+# Sitemap: https://xenoboard.net/sitemap.xml
+
+#    robots.txt
+#        _
+#       [ ]
+#      (   )
+#       |>|
+#    __/===\__
+#   //| o=o |\\
+# <]  | o=o |  [>
+#     \=====/
+#    / / | \ \
+#   <_________>
+# Beep Beep Boop Bop

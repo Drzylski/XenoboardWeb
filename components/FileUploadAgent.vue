@@ -13,7 +13,7 @@
 
     <!--BFormFile></!--BFormFile-->
 
-    <VaFileUpload
+    <LazyVaFileUpload
         v-model="files"
         dropzone
         color="primary"
@@ -39,7 +39,7 @@
           (max. 5MB)
         </p>
       </div>
-    </VaFileUpload>
+    </LazyVaFileUpload>
 
 
   </div>

@@ -2,7 +2,7 @@ export { };
 
 declare global {
 
-  type AllType = [boolean, string, number]; 
+  type AllType = [boolean, string, number, object]; 
 
   interface ModalData {
     topicData: {

@@ -1,6 +1,6 @@
 <template>
-  <div fluid class="modal-overlay" @click="closeModal">
-    <div class="modal-body modal-width-small" @click.stop>
+  <div fluid  class="modal-overlay" @click="closeModal" >
+    <div class="modal-body " @click.stop :style="'width: '+props.modalWidth+'% ; max-width: '+props.modalWidth+'% '">
     <div class="topcorner" style="color:white" @click="closeModal">
         <b-button class="modal-close-button" style="background-color: transparent;">
             X
@@ -43,10 +43,20 @@ const name = props.subComponentName;
 
 const subcomponentMap = {
   NewTopicForm: {component: resolveComponent('NewTopicForm'),title: 'Post Topic'},
+  NewReplyForm: {component: resolveComponent('NewReplyForm'),title: 'Post Reply'},
+  RegisterModal: {component: resolveComponent('RegisterModal'),title: 'Register'},
+  LoginModal: {component: resolveComponent('LoginModal'),title: 'Login'},
+  ReportModal: {component: resolveComponent('ReportModal'),title: 'Report'},
+  UserModal: {component: resolveComponent('UserModal'),title: 'User Profile'},
 }
 
 const subcomponentTitle = {
   NewTopicForm: 'Post Topic',
+  NewReplyForm: 'Post Reply',
+  RegisterModal: 'Register',
+  LoginModal: 'Login',
+  ReportModal: 'Report',
+  UserModal: 'User Profile',
 }
 
 const getSubComponent = (name) => {

@@ -1,25 +1,52 @@
 <template>
-  <b-container fluid class="footer-body p-3 mt-1">
+  <b-container fluid class="p-3 mt-1" :class="classObject" style="z-index:1;position: relative;  ">
+    <div class="zohar-svg container" style="display: none; z-index:-2000 !important;height:1px;">
+      <img class="zohar-img" src="~/assets/zohar.png" width="5%" style="z-index:-2000;display:block;position: absolute; left:25%; top: 120%;" />
+    </div>
     <BRow>
       <BCol class="col-6 desktop-footer">
+        <NuxtLink :to="{ path: '/'}">
           <span class="xeno-text logo-text">Xenoboard</span>
+        </NuxtLink>
       </BCol>
       <BCol class="col-6  footer-links desktop-footer" >
-          <span class="p-3">Contact</span><wbr>
-          <span class="p-3">About</span><wbr>
-          <span class="p-3">Help</span><wbr>
-          <span class="p-3 ">Terms&nbsp;of&nbsp;Use</span><wbr>
-          <span class="p-3 ">Privacy&nbsp;Policy</span><wbr>
+        <NuxtLink :to="{ path: '/Contact'}">
+          <span class="p-3">Contact</span>
+        </NuxtLink><wbr>
+        <NuxtLink :to="{ path: '/About'}">
+          <span class="p-3">About</span>
+        </NuxtLink><wbr>
+        <NuxtLink :to="{ path: '/Help'}">
+          <span class="p-3">Help</span>
+        </NuxtLink><wbr>
+        <NuxtLink :to="{ path: '/Legal'}">
+          <span class="p-3 ">Legal&nbsp;Notice</span>
+        </NuxtLink><wbr>
+        <NuxtLink :to="{ path: '/Privacy'}">
+          <span class="p-3 ">Privacy&nbsp;Policy</span>
+        </NuxtLink><wbr>
       </BCol>
       <BCol class="mobile-footer">
-
-        <span class="xeno-text logo-text">Xenoboard</span><br></br>
+        <NuxtLink :to="{ path: '/'}">
+          <span class="xeno-text logo-text">Xenoboard</span>
+        </NuxtLink>
+        <br></br>
         <div class="footer-links">
-          <span class="p-3">Contact</span><wbr>
-          <span class="p-3">About</span><wbr>
-          <span class="p-3">Help</span><wbr>
-          <span class="p-3 ">Terms&nbsp;of&nbsp;Use</span><wbr>
-          <span class="p-3 ">Privacy&nbsp;Policy</span><wbr>
+          <NuxtLink :to="{ path: '/Contact'}">
+            <span class="p-3">Contact</span>
+          </NuxtLink><wbr>
+          <NuxtLink :to="{ path: '/About'}">
+            <span class="p-3">About</span>
+          </NuxtLink><wbr>
+          <NuxtLink :to="{ path: '/Help'}">
+            <span class="p-3">Help</span>
+          </NuxtLink><wbr>
+          <NuxtLink :to="{ path: '/Legal'}">
+            <span class="p-3 ">Legal&nbsp;Notice</span>
+          </NuxtLink><wbr>
+          <NuxtLink :to="{ path: '/Privacy'}">
+            <span class="p-3 ">Privacy&nbsp;Policy</span>
+          </NuxtLink><wbr>
         </div>
 
       </BCol>
@@ -33,9 +60,25 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+
 //import { BCol, BContainer, BRow } from 'bootstrap-vue-next';
 
-  var year = new Date().getFullYear();
+interface Props {
+  alien: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  alien: false,
+})
+
+//Select the style based on truth values
+const classObject = computed(() => ({
+  'footer-body': !props.alien,
+  'alien-footer': props.alien
+}))
+
+var year = new Date().getFullYear();
 
 </script>
 
@@ -57,6 +100,7 @@
   text-align: right;
   font-size: 2.5vh;
   padding-right: 5%;
+  cursor: pointer;
 }
 
 .p-3:hover{
@@ -78,6 +122,31 @@
 
 .mobile-footer{
   display: none;
+}
+
+.footer-body:hover > .zohar-svg{
+    display:initial !important;
+  }
+
+  @keyframes zohar-appear {
+  to{
+    bottom: 8.5vh;
+    opacity:.7;
+  }
+  from{
+    bottom: 0vh;
+    opacity:0;
+  }
+
+}
+
+.container {
+  position: absolute;
+  bottom: -75%;
+  opacity:0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: zohar-appear 1s ease forwards;
 }
 
 </style>

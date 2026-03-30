@@ -16,8 +16,14 @@
       <BCol class="pt-2 pb-2 col-2 modal-label-text">
           <label class="label label-default"  for="formBody">Body:</label>
       </BCol>
-      <BCol class="pt-2 pb-2  pe-5">
-        <TinyEditor id="formBody" :image="false" :height="200" :menu-bar="true" :paste-as-text="true"  @editorvalue="(value) => body = value" v-model="body"> </TinyEditor>
+      <BCol v-if="editorLoading == null || editorLoading == true" class="pt-5 pb-5  pe-5 me-5 mb-5 mt-5">
+        <div><BSpinner class="light" large label="Loading..." variant="light" style="width: 5rem; height: 5rem;"></BSpinner></div>
+        <span class="loading-text">Loading...</span>
+      </BCol>
+      <BCol v-show="editorLoading != null && editorLoading == false" class="pt-2 pb-2  pe-5 ">
+        <ClientOnly fallback-tag="span" fallback="Loading on server...">
+          <LazyTinyEditor id="formBody" :image="false" :height="200" :menu-bar="true" :paste-as-text="true"  @editorvalue="(value) => body = value" v-model:editor-text="body" v-model:editor-loading="editorLoading"> </LazyTinyEditor>
+        </ClientOnly>
       </BCol>
     </BRow>
 
@@ -59,7 +65,9 @@
           <label class="label label-default" for="formTags">Files:</label>
       </BCol>
       <BCol class="pt-2 pb-2  pe-5">
-          <FileUploadAgent v-model="files"></FileUploadAgent>
+        <ClientOnly fallback-tag="span" fallback="Loading on server...">
+          <LazyFileUploadAgent v-model="files"></LazyFileUploadAgent>
+        </ClientOnly>
       </BCol>
     </BRow>
     {{ files }}
@@ -75,12 +83,13 @@
 </template>
 
 <script lang="ts" setup>
-import { BFormTextarea, BInput } from 'bootstrap-vue-next';
+import { BInput } from 'bootstrap-vue-next';
 import Multiselect from 'vue-multiselect';
-//import editor from '~/plugins/tinymce-vue';
-import TinyEditor from './TinyEditor.vue';
-import FileUploadAgent from './FileUploadAgent.vue';
-//import TinyEditor from './TinyEditor.vue';
+import { useGetCategoryValue } from '../composables/GetCategoryValue';
+
+const props = defineProps<{
+  modalData: object
+}>()
 
 const subject = ref<string>();
 const body = ref<string>();
@@ -89,16 +98,32 @@ const tags = ref<string[]>([]);
 const files = ref<File[]>([]);
 const formValid = ref<boolean>(false);
 
+  //Check for if editor is loading necessary files. 
+const editorLoading = ref<boolean>();
+
+function tinyEditorFinishedLoading(){
+  editorLoading.value = false;
+}  
+
+//Check if this is an edit. Id will not be null if this is an edit
+if(props.modalData.id != null){
+  console.log(props.modalData.category);
+  body.value = props.modalData.body;
+  subject.value = props.modalData.title;
+  category.value = useGetCategoryValue(props.modalData.category);
+  tags.value = props.modalData.tags;
+  files.value = props.modalData.files;
+}
+
+
+
 const catOptions = ref([
     {value: '0', text: 'Discussions'},
-    {value: '1', text: 'Rants'},
-    {value: '2', text: 'Community'},
+    {value: '1', text: 'Bazaar'},
+    {value: '2', text: 'Events'},
     {value: '3', text: 'News'},
+    {value: '4', text: 'Top Secret'},
   ]);
-
-const props = defineProps<{
-  modalData: object
-}>()
 
 function submitNewTopic(){
     //TODO:
@@ -118,6 +143,10 @@ function submitNewTopic(){
     background: #404F56;
     border-bottom:2px solid #6B8491;
     border-radius: 15px 15px 0 0 ;
+  }
+
+  .loading-text {
+    color:#FFFFFF
   }
 
 </style>

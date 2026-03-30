@@ -4,15 +4,11 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: false },
 
-  css: ['~/assets/css/styles.css','bootstrap/dist/css/bootstrap.min.css', '@fortawesome/fontawesome-svg-core/styles.css'],
+  css: ['~/assets/css/styles.css','bootstrap/dist/css/bootstrap.min.css'],
 
   build: {
     transpile: [
-      '@fortawesome/fontawesome-svg-core',
-      '@fortawesome/free-brands-svg-icons',
-      '@fortawesome/free-regular-svg-icons',
-      '@fortawesome/free-solid-svg-icons',
-      '@fortawesome/vue-fontawesome'
+
     ]
   },
 
@@ -20,6 +16,10 @@ export default defineNuxtConfig({
     //{ src: '~/plugins/tinymce802/tinymce.min.js', mode: 'client' },
     { src: '~/plugins/tinymce.client.ts', mode: 'client' },
   ],
+
+  image: {
+        dir: 'assets'
+      },
 
   app: {
     head: {
@@ -57,19 +57,20 @@ export default defineNuxtConfig({
     config: {
       // Config here
     },
+    fonts: false,
   },
 
   modules: [
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/fonts',
-    '@nuxt/ui',
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/scripts',
     '@bootstrap-vue-next/nuxt',
     '@pinia/nuxt',
-    '@vesp/nuxt-fontawesome',
-    '@vuestic/nuxt'
+    '@vuestic/nuxt',
+    '@nuxtjs/sitemap',
+    'nuxt-seo-utils',
   ]
 })
