@@ -28,7 +28,7 @@ bun install
 
 Running on Visual Studio Code with MDC, Nuxt(Unofficial), Nuxt Extension Pack, Nuxtr, and Vue(Official) Extensions
 
-Need to install node via https://nodejs.org/en and anything else needed for Visual Studio Code or Node.js. 
+Need to install node via https://nodejs.org/en and anything else needed for Visual Studio Code or Node.js..
 
 ## Development Server
 
