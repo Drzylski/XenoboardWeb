@@ -4,7 +4,7 @@
       <Slide v-for="(slide, index) in slides" :key="slide.id">
         <div class="carousel__item">
           <BCard
-            :title="slide.value.title"
+            
             :img-src="getimg(slide.value.imageUrl)"
             :img-alt=slide.value.title
             img-height="200"
@@ -14,12 +14,20 @@
             tag="article"
             style="max-width: 20rem;"
             class="mb-4 mt-3 b-img-bottom shadow"
+            no-body
           >
-            <b-card-text style="height: 100px;overflow-y: auto;">
-              {{ slide.value.content }}
-            </b-card-text>
+            <BCardBody style="height: 165px;overflow-y: auto;">
+              <BCardTitle>
+                {{ slide.value.title }}
+              </BCardTitle>
+              <b-card-text class="mt-1">
+                {{ slide.value.content }}
+              </b-card-text>
+             
+            </BCardBody>
 
-            <BButton class="" :href=slide.value.linkUrl variant="dark">Read More</BButton>
+             <BButton class="" :href=slide.value.linkUrl variant="dark" style="width: 50%; margin: auto; margin-bottom: 20px;">Read More</BButton>
+
           </BCard>
         </div>
       </Slide>

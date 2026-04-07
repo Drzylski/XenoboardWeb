@@ -118,8 +118,12 @@
 </template>
 
 <script lang="ts" setup>
-  import { useSeoMeta } from 'nuxt/app';
+  import { useHead, useSeoMeta } from 'nuxt/app';
 import {computed, ref} from 'vue'
+
+useHead({
+  titleTemplate: null,
+})
 
   useSeoMeta({
   title: 'Xenoboard - Tags',

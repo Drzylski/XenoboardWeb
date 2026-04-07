@@ -163,6 +163,7 @@ definePageMeta({
   })
 
   useHead({
+  titleTemplate: null,
   title,
   meta: [{
     name: 'description',

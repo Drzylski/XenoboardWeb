@@ -131,7 +131,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useSeoMeta } from 'nuxt/app';
+  import { useHead, useSeoMeta } from 'nuxt/app';
 import type BreadCrumbsVue from '../../components/BreadCrumbs.vue';
   //import { ITopicData } from '../types/TopicData.ts';
   import type IReportData  from '../../types/ReportData';
@@ -186,7 +186,11 @@ useSeoMeta({
   articleAuthor: ['Damian Zylski'],
   articlePublishedTime: '2025-05-05',
   articleModifiedTime: '2026-03-26',
-})    
+}) 
+
+useHead({
+  titleTemplate: null,
+})
 
 //const test = history.state.item; //Null check history if doing this
 

@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useSeoMeta } from 'nuxt/app';
+import { useHead, useSeoMeta } from 'nuxt/app';
 import BreadCrumbs from '../components/BreadCrumbs.vue';
 import UserAccountTab from '../components/UserAccountTab.vue';
 import UserProfileTab from '../components/UserProfileTab.vue';
@@ -46,6 +46,10 @@ import UserRepliesTab from '../components/UserRepliesTab.vue';
 import UserTopicsTab from '../components/UserTopicsTab.vue';
 
 const breadcrumbsList = ref<IBreadCrumb[]>([{path: 'Settings', title: 'Settings'}]);
+
+useHead({
+  titleTemplate: null,
+})
 
 useSeoMeta({
   title: 'Xenoboard - Settings',
