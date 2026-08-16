@@ -42,13 +42,17 @@
 </template>
 
 <script lang="ts" setup>
-import { useSeoMeta } from 'nuxt/app';
+import { useHead, useSeoMeta } from 'nuxt/app';
 
 
   const { data: help } = await useAsyncData(() => queryCollection('content').path('/').first());
   const { data: helptopicSearch } = await useAsyncData(() => queryCollection('content').path('/help-search').first());
 
   const breadcrumbsList = ref<IBreadCrumb[]>([{path: 'Help', title: 'Help'}]);
+
+  useHead({
+    titleTemplate: null,
+  })
 
   useSeoMeta({
   title: 'Xenoboard - Help',

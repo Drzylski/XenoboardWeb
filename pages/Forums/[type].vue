@@ -220,6 +220,7 @@ import { useRoute, useSeoMeta } from 'nuxt/app';
   })
 
   useHead({
+  titleTemplate: null,
   title,
   meta: [{
     name: 'description',

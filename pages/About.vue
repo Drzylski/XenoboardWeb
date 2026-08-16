@@ -24,7 +24,7 @@
         <div style="text-align: center;">
           <NuxtImg class="wilhelm-img vector-ceo" src="/wilhelm.png" alt="Wilhelm"  sizes="sm:50px md:100px lg:100px xl:100px" quality="100" loading="eager" @click="musicOnOff()"  />
             <audio controls loop hidden ref="musicPlayer">
-              <source src="~/assets/ShipOfRegretAndSleep.mp3" type="audio/mpeg">
+              <source src="~/assets/ShipofRegretandSleep.mp3" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio> 
         </div>
@@ -41,7 +41,7 @@
       </BCol>
       <BCol class="col-4" >
         <div style="text-align: center;">
-          <NuxtImg class="symbol-img " src="/symbol.png" alt="Symbol"  sizes="sm:50px md:100px lg:200 xl:200" quality="100" loading="eager"/>
+          <NuxtImg class="symbol-img " src="/Symbol.png" alt="Symbol"  sizes="sm:50px md:100px lg:200 xl:200" quality="100" loading="eager"/>
         </div>
       </BCol>
       <BCol class="col-4" >
@@ -187,6 +187,7 @@
 </template>
 
 <script lang="js">
+import { useHead } from '@unhead/vue';
 import BreadCrumbs from '../components/BreadCrumbs.vue';
  import test from '../middleware/test';
  import mixins from "~/mixins/mixins.js"
@@ -301,6 +302,10 @@ export default {
 </script>
 
 <script lang="js" setup>
+
+useHead({
+  titleTemplate: null,
+})
 
 definePageMeta({
   layout: 'about',

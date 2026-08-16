@@ -39,10 +39,14 @@
 </template>
 
 <script lang="ts" setup>
-import { useSeoMeta } from 'nuxt/app';
+import { useHead, useSeoMeta } from 'nuxt/app';
 import BreadCrumbs from '../components/BreadCrumbs.vue';
 
 const breadcrumbsList = ref<IBreadCrumb[]>([{path: 'Privacy', title: 'Privacy'}]);
+
+useHead({
+  titleTemplate: null,
+})
 
 useSeoMeta({
   title: 'Xenoboard - Privacy',

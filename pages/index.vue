@@ -192,8 +192,9 @@ import type IModalData from '../types/ModalData.ts';
   articleModifiedTime: '2026-03-26',
 })  
     
-  useHeadSafe({
+  useHead({
   title: title.value,
+  titleTemplate: null,
     meta: [{
       name: 'description',
       content: description.value,

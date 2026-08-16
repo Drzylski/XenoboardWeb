@@ -62,5 +62,9 @@
     "libReplacement": false,
     // See <https://github.com/vuejs/vue-cli/pull/5688>
     "skipLibCheck": true,
-  }
+    // "paths": {
+    //   "@/*": ["./src/*"],
+    // }
+  },
+  //"include": ["src/**/*", "src/png.d.ts"]
 }

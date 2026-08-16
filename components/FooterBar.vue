@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="p-3 mt-1" :class="classObject" style="z-index:1;position: relative;  ">
     <div class="zohar-svg container" style="display: none; z-index:-2000 !important;height:1px;">
-      <img class="zohar-img" src="~/assets/zohar.png" width="5%" style="z-index:-2000;display:block;position: absolute; left:25%; top: 120%;" />
+      <img class="zohar-img" src="~/assets/Zohar.png" width="5%" style="z-index:-2000;display:block;position: absolute; left:25%; top: 120%;" />
     </div>
     <BRow>
       <BCol class="col-6 desktop-footer">

@@ -32,10 +32,14 @@
 </template>
 
 <script lang="ts" setup>
-import { useSeoMeta } from 'nuxt/app';
+import { useHead, useSeoMeta } from 'nuxt/app';
 import ContactForm from '../components/ContactForm.vue';
 
 const breadcrumbsList = ref<IBreadCrumb[]>([{path: 'Contact', title: 'Contact'}]);
+
+useHead({
+  titleTemplate: null,
+})
 
 useSeoMeta({
   title: 'Xenoboard - Contact',

@@ -76,6 +76,7 @@ useSeoMeta({
 
 
 useHead({
+  titleTemplate: null,
   htmlAttrs: {
     class: 'admin-html'
   }

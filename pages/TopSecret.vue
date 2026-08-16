@@ -84,6 +84,7 @@ import { useSeoMeta } from 'nuxt/app';
 import BreadCrumbs from '../components/BreadCrumbs.vue';
 
 useHead({
+  titleTemplate: null,
   htmlAttrs: {
     class: 'alien-html'
   }

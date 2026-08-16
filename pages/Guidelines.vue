@@ -47,11 +47,12 @@ import BreadCrumbs from '../components/BreadCrumbs.vue';
 
 //preload image
 useHead({
+  titleTemplate: null,
   link: [
     {
       rel: 'preload',
       as: 'image',
-      URL: '~/assets/zohar.png',
+      URL: '~/assets/Zohar.png',
     },
   ],
 });
@@ -78,7 +79,7 @@ const breadcrumbsList = ref<IBreadCrumb[]>([{path: 'Guidelines', title: 'Guideli
 <style scoped>
 
 .zohar-background{
-  background-image: url(~/assets/zohar.png);
+  background-image: url(~/assets/Zohar.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size:contain;
