@@ -79,8 +79,8 @@
         <h4 class="pt-2 " >Stats</h4>
       </BCol>
       <BCol class="A-Button">
-          <NuxtLink :to="{ path: '/TopSecret'}">
-          <BButton v-if="isAuthorized" class="alien-button mt-1" @click="showNewTopicModal"  >
+          <NuxtLink class="alien-link" :to="{ path: '/TopSecret'}">
+          <BButton v-if="isAuthorized" class="alien-button mt-1"   >
             <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 512 512" xml:space="preserve" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">  <g> <path class="st0" d="M421.844,68.703C377.531,24.406,318.641,0,256,0C193.375,0,134.484,24.406,90.156,68.703 C45.859,113,21.469,171.906,21.469,234.547c0,68.75,35.609,123.5,66.656,163.516C130.875,453.188,182.625,512,256,512 s125.125-58.813,167.891-113.938c31.031-40.016,66.641-94.766,66.641-163.516C490.531,171.906,466.141,113,421.844,68.703z M385.063,367.953c-35.625,45.922-77.906,94.891-129.063,94.891s-93.438-48.969-129.047-94.875 c-27.859-35.938-56.344-79.891-56.344-133.422c0-49.516,19.281-96.078,54.297-131.094C159.938,68.438,206.484,49.156,256,49.156 s96.063,19.281,131.094,54.281c35.016,35.031,54.297,81.594,54.297,131.109C441.391,288.078,412.906,332.031,385.063,367.953z"></path> <path class="st0" d="M285.656,363.078c6.844,0,12.375-5.531,12.375-12.359c0-6.813-5.531-12.344-12.375-12.344 c-6.828,0-12.328,5.531-12.328,12.344C273.328,357.547,278.828,363.078,285.656,363.078z"></path> <path class="st0" d="M213.969,350.719c0,6.828,5.531,12.359,12.375,12.359c6.828,0,12.344-5.531,12.344-12.359 c0-6.813-5.516-12.344-12.344-12.344C219.5,338.375,213.969,343.906,213.969,350.719z"></path> <path class="st0" d="M291.672,387.156h-71.344c-6.031,0-10.922,4.875-10.922,10.891s4.891,10.922,10.922,10.922h71.344 c6.031,0,10.922-4.906,10.922-10.922S297.703,387.156,291.672,387.156z"></path> <path class="st0" d="M221.938,297.688c6.875-0.641,12.297-5.969,10.156-17.375c-5.563-29.094-19.281-53.313-44.141-68.625 c-20.188-12.469-50.156-18.781-74.594-12.766c-7.625,1.859-10.359,8.406-8.172,19.281c3.781,18.984,12.375,45.828,32.125,61.016 C159.063,295.938,191.703,300.531,221.938,297.688z"></path> <path class="st0" d="M398.625,198.922c-24.422-6.016-54.375,0.297-74.594,12.766c-24.828,15.313-38.563,39.531-44.109,68.625 c-2.172,11.406,3.266,16.734,10.141,17.375c30.234,2.844,62.859-1.75,84.625-18.469c19.75-15.188,28.344-42.031,32.125-61.016 C409,207.328,406.281,200.781,398.625,198.922z"></path> </g> </g></svg>
           </BButton>
           </NuxtLink>
@@ -639,12 +639,16 @@ definePageMeta({
 
 }
 
-.stat-header:hover > .section-header > .A-Button > .alien-button {
+.alien-link{
+
+}
+
+.stat-header:hover > .section-header > .A-Button > .alien-link > .alien-button {
   opacity: 1 !important;
-  -webkit-transition: opacity 100s;
-    -moz-transition: opacity 100s;
-    -o-transition: opacity 100s;
-    transition: opacity 100s;
+  -webkit-transition: opacity 20s;
+    -moz-transition: opacity 20s;
+    -o-transition: opacity 20s;
+    transition: opacity 20s !important;
 }
 
 .alien-button{
@@ -656,7 +660,7 @@ definePageMeta({
   margin-left: auto !important;
   border: 1px solid #FFFFFF !important;
   background-color: #005500 !important;
-  opacity: 0 !important;
+  opacity: 0.0 !important;
   text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
   -webkit-transition: opacity 10s;
     -moz-transition: opacity 10s;

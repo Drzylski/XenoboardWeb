@@ -11,19 +11,19 @@
       </BCol>
       <BCol class="col-6  footer-links desktop-footer" >
         <NuxtLink :to="{ path: '/Contact'}">
-          <span class="p-3">Contact</span>
+          <span class="p-3 footer-link">Contact</span>
         </NuxtLink><wbr>
         <NuxtLink :to="{ path: '/About'}">
-          <span class="p-3">About</span>
+          <span class="p-3 footer-link">About</span>
         </NuxtLink><wbr>
         <NuxtLink :to="{ path: '/Help'}">
-          <span class="p-3">Help</span>
+          <span class="p-3 footer-link">Help</span>
         </NuxtLink><wbr>
         <NuxtLink :to="{ path: '/Legal'}">
-          <span class="p-3 ">Legal&nbsp;Notice</span>
+          <span class="p-3 footer-link">Legal&nbsp;Notice</span>
         </NuxtLink><wbr>
         <NuxtLink :to="{ path: '/Privacy'}">
-          <span class="p-3 ">Privacy&nbsp;Policy</span>
+          <span class="p-3 footer-link">Privacy&nbsp;Policy</span>
         </NuxtLink><wbr>
       </BCol>
       <BCol class="mobile-footer">
@@ -33,19 +33,19 @@
         <br></br>
         <div class="footer-links">
           <NuxtLink :to="{ path: '/Contact'}">
-            <span class="p-3">Contact</span>
+            <span class="p-3 footer-link">Contact</span>
           </NuxtLink><wbr>
           <NuxtLink :to="{ path: '/About'}">
-            <span class="p-3">About</span>
+            <span class="p-3 footer-link">About</span>
           </NuxtLink><wbr>
           <NuxtLink :to="{ path: '/Help'}">
-            <span class="p-3">Help</span>
+            <span class="p-3 footer-link">Help</span>
           </NuxtLink><wbr>
           <NuxtLink :to="{ path: '/Legal'}">
-            <span class="p-3 ">Legal&nbsp;Notice</span>
+            <span class="p-3 footer-link ">Legal&nbsp;Notice</span>
           </NuxtLink><wbr>
           <NuxtLink :to="{ path: '/Privacy'}">
-            <span class="p-3 ">Privacy&nbsp;Policy</span>
+            <span class="p-3 footer-link ">Privacy&nbsp;Policy</span>
           </NuxtLink><wbr>
         </div>
 
@@ -103,7 +103,11 @@ var year = new Date().getFullYear();
   cursor: pointer;
 }
 
-.p-3:hover{
+.footer-link {
+
+}
+
+.footer-link:hover{
   color: #777777;
   transition: color 1s;
 }

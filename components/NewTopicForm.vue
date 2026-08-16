@@ -70,12 +70,11 @@
         </ClientOnly>
       </BCol>
     </BRow>
-    {{ files }}
 
     <!--Submit Button-->
     <BRow class="pt-3">
       <BCol class="pt-2 pb-2  pe-5">
-          <BButton  class="submit-button mt-1" @click="submitNewTopic" >Submit</BButton>
+          <BButton  class="submit-button mt-1" @click="submitNewTopic()" >Submit</BButton>
       </BCol>
     </BRow>
 
@@ -86,6 +85,9 @@
 import { BInput } from 'bootstrap-vue-next';
 import Multiselect from 'vue-multiselect';
 import { useGetCategoryValue } from '../composables/GetCategoryValue';
+import { useToastSuccess } from '../composables/ToastSuccess';
+import { useToastError } from '../composables/ToastError';
+import { useTopicService } from '../composables/services/TopicService';
 
 const props = defineProps<{
   modalData: object
@@ -95,6 +97,7 @@ const subject = ref<string>();
 const body = ref<string>();
 const category = ref<number>();
 const tags = ref<string[]>([]);
+//const files = ref<File[]>([]);
 const files = ref<File[]>([]);
 const formValid = ref<boolean>(false);
 
@@ -125,9 +128,61 @@ const catOptions = ref([
     {value: '4', text: 'Top Secret'},
   ]);
 
-function submitNewTopic(){
-    //TODO:
-    alert("Submitted!");
+//Submits a new topic
+async function submitNewTopic(){
+    //TODO: this method is for testing purposes currently and does not reflect what it should actually do yet
+
+    //Package topic
+    //TODO: Create a type for this
+    const newTopicDto = {
+      id: 1,
+      uuid: 'b9467df4-546a-4941-be7d-3a0d88b9ad8b',
+      title: subject.value,
+      body: body.value,
+      category: category.value.value,
+      tags: tags.value,
+      files: [],
+      update: true
+    }
+
+    //Package files
+    //TODO: Create a type for this
+    const fileUploadListDto = {
+      id: 1,
+      files: files.value,
+    }
+
+    let formData = new FormData();
+    formData.append('userId', '1');
+    formData.append('files', files.value);
+
+    const data = {
+      files: files.value,
+      newTopicDto: newTopicDto
+    }
+
+    
+
+    try{
+        //Update or create topic
+        const response = await useTopicService().UpdateTopic('1', newTopicDto);
+        useToastSuccess('Topic Created!');
+
+        const topicId = response.data.id;
+
+        //Upload files if any
+        if(fileUploadListDto.files && fileUploadListDto.files.length > 0){
+          const response = await useTopicService().UploadTopicFiles(topicId, fileUploadListDto);
+          if(response.status == 200) useToastSuccess('Files processed successfully');
+          else useToastError('File processing failed');
+        }
+      }
+      catch(error){
+        useToastError('Error '+error);
+        console.error(error);
+      }
+
+    //alert("Submitted!");
   }
 
 

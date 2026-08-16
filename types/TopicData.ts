@@ -7,5 +7,6 @@ export default interface ITopicData {
     category: string;
     tags: string[];
     files: object[];
+    update: boolean;
     name: "TopicData";
 }

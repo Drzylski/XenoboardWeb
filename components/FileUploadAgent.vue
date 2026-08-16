@@ -46,6 +46,8 @@
 </template>
 
 <script lang="ts" setup>
+import { useToastError } from '../composables/ToastError';
+
 
 const files = defineModel({ required: true });
 const disableAddFiles = ref<boolean>(false);
@@ -57,14 +59,19 @@ watch(
     var inputs = document.getElementsByClassName("va-file-upload__field__input");
 
     if(newValue.length > 0){
-      if(inputs.length > 0) inputs[0].setAttribute("disabled",'true');
+      if(newValue.length > 3) {
+        files.value = files.value.slice(0, 3);
+        inputs[0].setAttribute("disabled",'true');
+      }
 
       //Also check file size, remove file if too big
-      var file = newValue[0];
+      var file = newValue[newValue.length-1];
+      console.log(file);
+      console.log(file.size);
       if (file.size > 5120 * 1024) {
         //If bigger than 5mb
         files.value = [];
-        console.log('File too big!'); //TODO: Create some user seen message that file too big. 
+        useToastError('File too big!');
       }
     }
     else{

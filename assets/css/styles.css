@@ -1,4 +1,4 @@
-/* Better to put styles in unscoped app.vue? */
+/* If I put styles in here, they seem to moreso require using !important. So putting them in unscoped app.vue instead */
 
 .modal-bodyy {
   position:relative;

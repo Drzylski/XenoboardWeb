@@ -18,7 +18,7 @@ import NavBar from '../components/NavBar.vue';
 <style scoped>
 
 .html-style {
-    background-color: #404F56 !important;
+    background-color: #404F56 ;
   }
 
 .quack{
@@ -28,9 +28,9 @@ import NavBar from '../components/NavBar.vue';
 .default-body{
     /*background : linear-gradient(90deg, #6B8491 0.30%, #7B94A1 50%, #6B8491 100%);*/
     position: relative;
-    line-height: 1.2 !important;
-    font-family: 'Tahoma', "Roboto", sans-serif !important;
-    --va-font-family: Tahoma !important;
+    line-height: 1.2 ;
+    font-family: 'Tahoma', "Roboto", sans-serif ;
+    --va-font-family: Tahoma ;
     background-color: #6b8491;
     background-image: linear-gradient(
       to right, rgba(100, 140, 155, 0.7), rgba(100, 140, 155, 0.98), rgba(100, 140, 155, 0.7)

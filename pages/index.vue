@@ -133,7 +133,7 @@
       <BRow class="topics-opacity grey-body p-4 ">
         <BCol class="col-12 card-padding" >
           <div style="text-align: center;">
-            <h2 class="header-text-h2 mb-5" >Please check out our About section to learn more about <span class="xeno-text">Xenoboard</span> and feel free to signup today!</h2>
+            <h2 class="header-text-h2 mb-5" v-html="lowerRegisterText"></h2>
             <BButton class="signup-button xeno-text " @click="showRegisterModal">
               SIGN UP
             </BButton>
@@ -154,6 +154,16 @@ import SlideCarousel from '../components/SlideCarousel.vue';
 import type ISlideData from '../types/SlideData';
 import type IUserData from '../types/UserData';
 import { useSeoMeta } from 'nuxt/app';
+import { useHttpRequest } from '../composables/services/HttpRequest';
+import { useSiteContentService } from '../composables/services/SiteContentService';
+import { useAxiosRequest } from '../composables/AxiosRequest.ts';
+import HttpMethod from '../utils/HttpMethod.ts';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
+import { useToastSuccess } from '../composables/ToastSuccess.ts';
+import { useToastError } from '../composables/ToastError.ts';
+import type ITopicData from '../types/TopicData.ts';
+import type IModalData from '../types/ModalData.ts';
 
  definePageMeta({
     layout: 'default'
@@ -165,6 +175,7 @@ import { useSeoMeta } from 'nuxt/app';
   const isAuthorized = ref(true);
   const showRegister = ref<boolean>(false);
   const showUserProfile = ref<boolean>(false); 
+  const lowerRegisterText = ref('TEST');  
 
   useSeoMeta({
   title: title.value,
@@ -199,23 +210,53 @@ import { useSeoMeta } from 'nuxt/app';
     ],
   })  
 
+  async function getLowerRegisterTextData() {
+      try{
+        const response = await useSiteContentService().getSiteContentById('1', '666');
+        useToastSuccess('Data Retrieved');
+        lowerRegisterText.value = response.data.content;
+      }
+      catch(error){
+        useToastError('Error '+error);
+        console.error(error);
+      }
+  }
+
+  //Get data for bottom register link content
+  getLowerRegisterTextData();
+
     //Check for if carousel is loading necessary files. 
     const carouselLoading = ref<boolean>();
 
   const modalData: IModalData = {
-    id: null,
-    title: null,
-    body: null,
-    author: null,
-    category: null,
-    tags: null,
-    update: null,
-    firstName: null,
-    lastName: null,
-    middleName: null,
-    dob: null,
-    email: null
+    id: undefined,
+    title: '',
+    body: '',
+    author: '',
+    category: '',
+    tags: [],
+    update: false,
+    firstName: '',
+    lastName: '',
+    middleName: '',
+    dob: new Date(),
+    email: '',
+    name: '',
 };
+
+const topicData: ITopicData = {
+    id: undefined,
+    userId: undefined,
+    title: title.value,
+    body: '',
+    category: '-1',
+    tags: [],
+    files: [],
+    update: false,
+    name: 'TopicData',
+};
+
+//TODO: Much data is hardcoded for now for testing. Will come from DB in future update
 
 const userData: IUserData =  {
     id: '777',
@@ -362,10 +403,6 @@ const userData: IUserData =  {
 
   const slideList = ref([slide1, slide2, slide3, slide4, slide8, slide7, slide5, slide6]);
 
-
-
-
-
   function isEven(n) {
     return n % 2 == 0;
   }
@@ -399,11 +436,7 @@ const userData: IUserData =  {
     showUserProfile.value = useCloseModal(showUserProfile.value);
   }
 
-  //defineExpose({testTopic1,testTopic2,testTopic3,topicList});
-
   var num = 666;
-
-
 
 </script>
 

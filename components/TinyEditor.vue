@@ -15,6 +15,7 @@
             toolbar_mode: 'sliding', 
             paste_as_text: true,
             convert_urls: false,
+            convert_unsafe_embeds: true,
             plugins: 'lists link image table code wordcount accordion anchor charmap advlist autolink fullscreen insertdatetime  ' +
             'preview searchreplace visualblocks visualblocks autosave directionality nonbreaking pagebreak quickbars visualblocks visualchars save emoticons',
             toolbar: 'blocks fontsize | bold italic underline superscript strikethrough removeformat align numlist bullist charmap link ' +

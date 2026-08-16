@@ -31,9 +31,9 @@
   body{
     background : linear-gradient(90deg, #6B8491 0.30%, #7B94A1 50%, #6B8491 100%);
     position: relative;
-    line-height: 1.2 !important;
-    font-family: 'Tahoma', "Roboto", sans-serif !important;
-    --va-font-family: Tahoma !important;
+    line-height: 1.2 ;
+    font-family: 'Tahoma', "Roboto", sans-serif ;
+    --va-font-family: Tahoma ;
 }
 
    a {
@@ -62,14 +62,14 @@
 }
 
 .admin-footer-body{
-    background-color: #5e5e65 !important;
-    color: #EEEEEE !important;
+    background-color: #5e5e65 ;
+    color: #EEEEEE ;
     
 }
 
 .alien-footer{
-    background-color: #002400 !important;
-    color: #EEEEEE !important;
+    background-color: #002400 ;
+    color: #EEEEEE ;
     
 }
 
@@ -88,11 +88,11 @@
 #layout-body{
     position: relative;
     color: #FFFFFF;
-    font-optical-sizing: auto !important;
-    font-weight: 400 !important;
-    font-style: normal !important;
-    font-variation-settings: "width" 100 !important;
-    font-size: 16px !important;
+    font-optical-sizing: auto ;
+    font-weight: 400 ;
+    font-style: normal ;
+    font-variation-settings: "width" 100 ;
+    font-size: 16px ;
 }
 
 .default-opacity{
@@ -102,11 +102,11 @@
 .layout-body{
     position: relative;
     color: #FFFFFF;
-    font-optical-sizing: auto !important;
-    font-weight: 400 !important;
-    font-style: normal !important;
-    font-variation-settings: "width" 100 !important;
-    font-size: 16px !important;
+    font-optical-sizing: auto ;
+    font-weight: 400 ;
+    font-style: normal ;
+    font-variation-settings: "width" 100 ;
+    font-size: 16px ;
 }
 
 
@@ -123,20 +123,20 @@
 }
 
 .content-body{
-    width: 90% !important;
-    margin: auto !important;
-    padding: 20px !important;
+    width: 90% ;
+    margin: auto ;
+    padding: 20px ;
 }
 
 .about-body{
-    width: 100% !important;
-    margin: auto !important;
-    padding: 0px !important;
+    width: 100% ;
+    margin: auto ;
+    padding: 0px ;
 }
 
 .footer-body{
-    background-color: #404F56 !important;
-    color: #EEEEEE !important;
+    background-color: #404F56 ;
+    color: #EEEEEE ;
     
 }
 
@@ -145,51 +145,51 @@
 }
 
 .topics-container{
-  background-color: #0A0C0D !important;
-  color: #EEEEEE !important;
-  border-radius: 10px 10px 10px 10px !important;
-  border-bottom: 2px solid #0A0C0D !important;
-  align-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  max-width: none !important;
-  padding-bottom: 5px !important;
+  background-color: #0A0C0D ;
+  color: #EEEEEE ;
+  border-radius: 10px 10px 10px 10px ;
+  border-bottom: 2px solid #0A0C0D ;
+  align-content: center ;
+  align-items: center ;
+  text-align: center ;
+  max-width: none ;
+  padding-bottom: 5px ;
 }
 
 .admin-container{
-  background-color: #080a0b !important;
-  color: #EEEEEE !important;
-  border-radius: 10px 10px 10px 10px !important;
-  border-bottom: 2px solid #080a0b !important;
-  align-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  max-width: none !important;
-  padding-bottom: 5px !important;
+  background-color: #080a0b ;
+  color: #EEEEEE ;
+  border-radius: 10px 10px 10px 10px ;
+  border-bottom: 2px solid #080a0b ;
+  align-content: center ;
+  align-items: center ;
+  text-align: center ;
+  max-width: none ;
+  padding-bottom: 5px ;
   width: 95% ;
   position: relative;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto ;
+  margin-right: auto ;
 }
 
 .alien-container{
-  background-color: #080a0b !important;
-  color: #EEEEEE !important;
-  border-radius: 10px 10px 10px 10px !important;
-  border-bottom: 2px solid #080a0b !important;
-  align-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  max-width: none !important;
-  padding-bottom: 5px !important;
+  background-color: #080a0b ;
+  color: #EEEEEE ;
+  border-radius: 10px 10px 10px 10px ;
+  border-bottom: 2px solid #080a0b ;
+  align-content: center ;
+  align-items: center ;
+  text-align: center ;
+  max-width: none ;
+  padding-bottom: 5px ;
   width: 93% ;
   position: relative;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto ;
+  margin-right: auto ;
 }
 
 .card-body{
-  padding: 15px !important;
+  padding: 15px ;
   animation: left 2s ease;
   transition: filter 0.2s ease-in-out;
   -moz-transition: filter 0.2s ease-in-out;
@@ -198,14 +198,14 @@
 
 .card-author-image{
   border-radius: 50%;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0 ;
+  padding: 0 ;
   cursor: pointer;
 }
 
 .header-background{
     background-color: #080a0b ;
-    color: #EEEEEE !important;
+    color: #EEEEEE ;
     border-radius: 10px 10px 10px 10px;
     border: 2px solid #080a0b;
     align-content: start;
@@ -219,7 +219,7 @@
 
   .admin-header-background{
     background-color: #262626 ;
-    color: #EEEEEE !important;
+    color: #EEEEEE ;
     border-radius: 10px 10px 10px 10px;
     border: 2px solid #262626;
     align-content: center;
@@ -229,8 +229,8 @@
     width: 95% ;
     opacity: 0.6;
     position: relative;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-left: auto ;
+    margin-right: auto ;
   }
 
   .black-background{
@@ -254,7 +254,7 @@
 }
 
 .page-link { 
-  text-decoration: underline !important;
+  text-decoration: underline ;
   color: #AAAAFF !important
 }
 
@@ -263,47 +263,47 @@
 }
 
 .card-padding{
-  padding-left: 5px !important;
-  padding-right: 5px !important;
+  padding-left: 5px ;
+  padding-right: 5px ;
 }
 
 .card-colour{
   background-color: #2A3439;
-  opacity: 1 !important;
+  opacity: 1 ;
 }
 
 .card-colour-dark{ 
   background-color: #14191C; 
-  opacity: 1 !important;
+  opacity: 1 ;
 }
 
 .post-button{
-  display: flex !important;
-  justify-content: flex-end !important;
-  justify-items: flex-end !important;
-  align-items:flex-end !important;
-  align-content:flex-end !important;
-  margin-left: auto !important;
-  border: 1px solid #FFFFFF !important;
-  background-color: #2A3439 !important;
-  opacity: 1 !important;
+  display: flex ;
+  justify-content: flex-end ;
+  justify-items: flex-end ;
+  align-items:flex-end ;
+  align-content:flex-end ;
+  margin-left: auto ;
+  border: 1px solid #FFFFFF ;
+  background-color: #2A3439 ;
+  opacity: 1 ;
 }
 
   .post-button:hover{
-  background-color: #14191C !important;
+  background-color: #14191C ;
 }
 
 .grey-body{
     padding: 15px !important;
-    background-color: #2A3439 !important;
-    opacity: 1 !important;
+    background-color: #2A3439 ;
+    opacity: 1 ;
     color: #BBBBBB !important
   }
 
   .admin-content-body{
-    padding: 15px !important;
-    background-color: #3a3d45 !important;
-    opacity: 1 !important;
+    padding: 15px ;
+    background-color: #3a3d45 ;
+    opacity: 1 ;
     color: #BBBBBB !important
   }
 
@@ -337,7 +337,7 @@
   height: fit-content;
   margin-top: auto;
   margin-bottom:auto;
-  padding: 0px !important;
+  padding: 0px ;
   border-bottom:20px solid #404F56;
   text-align: center;
   border-radius: 20px;
@@ -365,11 +365,11 @@
 }
 
 .modal-label-text{
-  color:#FFFFFF !important; 
+  color:#FFFFFF ; 
   white-space: initial;
-  text-align: left !important;
+  text-align: left ;
   font-size: 2.5vh;
-  padding-left: 5% !important;
+  padding-left: 5% ;
 }
 
 .modal-input-text{
@@ -395,7 +395,7 @@
 }
 
 .xeno-text {
-    font-family: "Xenogears" !important;
+    font-family: "Xenogears" ;
     transition: text-shadow 2s, color 2s,;
     cursor: pointer;
 }
@@ -452,21 +452,21 @@
 }
 
 .submit-button{
-    display: flex !important;
-    justify-content: flex-end !important;
-    justify-items: flex-end !important;
-    align-items:flex-end !important;
-    align-content:flex-end !important;
-    margin-left: auto !important;
-    border: 1px solid #BBBBBB !important;
-    background-color: #404F56 !important;
-    opacity: 1 !important;
-    color: #DDDDDD !important;
+    display: flex ;
+    justify-content: flex-end ;
+    justify-items: flex-end ;
+    align-items:flex-end ;
+    align-content:flex-end ;
+    margin-left: auto ;
+    border: 1px solid #BBBBBB ;
+    background-color: #404F56 ;
+    opacity: 1 ;
+    color: #DDDDDD ;
   }
   
 
   .submit-button:hover {
-    background-color: #202F36 !important;
+    background-color: #202F36 ;
   }
 
   .blur-effect{
@@ -475,9 +475,9 @@
 
   .nav-button {
   border-radius: 5px;
-  background-color: #2A3439 !important;
-  border: 1px solid grey !important;
-  font-size: 2.2vh !important;
+  background-color: #2A3439 ;
+  border: 1px solid grey ;
+  font-size: 2.2vh ;
   transition: background-color 1s;
   padding: 8px;
   margin: 8px;
@@ -485,12 +485,14 @@
 }
 
 .nav-button:hover {
-  background-color: #14191C !important;
-  transition: background-color 1s !important;
+  background-color: #14191C ;
+  transition: background-color 1s ;
   
 }
 
   /* ***MOBILE AND LOW RESOLUTION STYLES*** */
+
+  /* I want to remove all these importants but for whatever reason the mobile styles stop working, so will leave it be.  */
 
   @media (max-width: 1000px) {
     .content-body {
