@@ -70,8 +70,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { BButton } from 'bootstrap-vue-next';
-import { useOpenModal } from '../composables/OpenModal';
-import { useCloseModal } from '../composables/CloseModal';
+import { useOpenModal } from '../../composables/OpenModal';
+import { useCloseModal } from '../../composables/CloseModal';
 import GetCategoryDescription from '../../utils/GetCategoryDescription';
 import type IUserData from '../../types/UserData';
 import { useRoute, useSeoMeta } from 'nuxt/app';

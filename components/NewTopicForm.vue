@@ -87,7 +87,7 @@ import Multiselect from 'vue-multiselect';
 import { useGetCategoryValue } from '../composables/GetCategoryValue';
 import { useToastSuccess } from '../composables/ToastSuccess';
 import { useToastError } from '../composables/ToastError';
-import { useTopicService } from '../composables/services/TopicService';
+import { useTopicService } from '../services/TopicService';
 
 const props = defineProps<{
   modalData: object

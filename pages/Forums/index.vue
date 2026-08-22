@@ -131,8 +131,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { BButton } from 'bootstrap-vue-next';
-import { useOpenModal } from '../composables/OpenModal';
-import { useCloseModal } from '../composables/CloseModal';
+import { useOpenModal } from '../../composables/OpenModal';
+import { useCloseModal } from '../../composables/CloseModal';
 import type IUserData from '../../types/UserData';
 import { useSeoMeta } from 'nuxt/app';
 

@@ -1,5 +1,5 @@
-import HttpMethod from "../../utils/HttpMethod";
-import { useAxiosRequest } from "../AxiosRequest"
+import HttpMethod from "../utils/HttpMethod";
+import { useAxiosRequest }  from "../composables/AxiosRequest";
 
 export const useTopicService = () => {
 
