@@ -74,7 +74,7 @@
     <!--Submit Button-->
     <BRow class="pt-3">
       <BCol class="pt-2 pb-2  pe-5">
-          <BButton  class="submit-button mt-1" @click="submitNewTopic()" >Submit</BButton>
+          <BButton  class="submit-button mt-1" @click="submitNewTopicFetch()" >Submit</BButton>
       </BCol>
     </BRow>
 
@@ -88,6 +88,8 @@ import { useGetCategoryValue } from '../composables/GetCategoryValue';
 import { useToastSuccess } from '../composables/ToastSuccess';
 import { useToastError } from '../composables/ToastError';
 import { useTopicService } from '../services/TopicService';
+import { useFetchRequest } from '../composables/FetchRequest';
+import { ref } from 'vue';
 
 const props = defineProps<{
   modalData: object
@@ -161,10 +163,8 @@ async function submitNewTopic(){
       newTopicDto: newTopicDto
     }
 
-    
-
     try{
-        //Update or create topic
+        //Update or create topic with Axios
         const response = await useTopicService().UpdateTopic('1', newTopicDto);
         useToastSuccess('Topic Created!');
 
@@ -180,6 +180,71 @@ async function submitNewTopic(){
       catch(error){
         useToastError('Error '+error);
         console.error(error);
+      }
+
+    //alert("Submitted!");
+  }
+
+  //Submits a new topic with Fetch
+async function submitNewTopicFetch(){
+    //TODO: this method is for testing purposes currently and does not reflect what it should actually do yet
+
+    //Package topic
+    //TODO: Create a type for this
+    const newTopicDto = {
+      id: 1,
+      uuid: 'b9467df4-546a-4941-be7d-3a0d88b9ad8b',
+      title: subject.value,
+      body: body.value,
+      category: category.value.value,
+      tags: tags.value,
+      files: [],
+      update: true
+    }
+
+    //Package files
+    //TODO: Create a type for this
+    const fileUploadListDto = {
+      id: 1,
+      files: files.value,
+    }
+
+      try{
+        //Update or create topic with Fetch
+        const topicId = ref<string>('');
+        const { data : response, error : error, status : status} = await useTopicService().UpdateTopicFetch('1', newTopicDto);
+
+        if(error.value) throw error; 
+        else{
+          if(response.value) topicId.value = response.value.id;
+          useToastSuccess('Topic Created!');
+        }
+        
+        //console.log(status.value);
+
+        //Upload files if any
+        if(fileUploadListDto.files && fileUploadListDto.files.length > 0){
+
+          //Form Data
+          let formData = new FormData();
+          formData.append('id', topicId.value);
+
+          //Add files to form data
+          for (let i = 0; i < fileUploadListDto.files.length; i++) {
+            formData.append('files', fileUploadListDto.files[i]);
+          }
+
+          //console.log(formData);
+
+          const { data : response, error : error, status : status} = await useTopicService().UploadTopicFilesFetch(topicId.value, formData);
+          if('success' == status.value) useToastSuccess('Files processed successfully');
+          else useToastError('File processing failed');
+        }
+      }
+      catch(error){
+        useToastError('Error '+error);
+        console.error(error);
+        console.log(error.value);
       }
 
     //alert("Submitted!");

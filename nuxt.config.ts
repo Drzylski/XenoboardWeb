@@ -12,6 +12,10 @@ export default defineNuxtConfig({
     ]
   },
 
+  nitro: {
+    debug: false,
+  },
+
   plugins: [
     //{ src: '~/plugins/tinymce802/tinymce.min.js', mode: 'client' },
     { src: '~/plugins/tinymce.client.ts', mode: 'client' },

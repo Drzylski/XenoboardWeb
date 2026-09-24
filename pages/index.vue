@@ -146,7 +146,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
+import { useFetch } from "nuxt/app"
 import { BButton } from 'bootstrap-vue-next';
 import { useOpenModal } from '../composables/OpenModal';
 import { useCloseModal } from '../composables/CloseModal';
@@ -163,6 +164,8 @@ import { useToastSuccess } from '../composables/ToastSuccess.ts';
 import { useToastError } from '../composables/ToastError.ts';
 import type ITopicData from '../types/TopicData.ts';
 import type IModalData from '../types/ModalData.ts';
+import { useCustomUseFetch } from '../composables/CustomUseFetch.ts';
+import { useFetchRequest } from '../composables/FetchRequest.ts';
 
  definePageMeta({
     layout: 'default'
@@ -209,6 +212,21 @@ import type IModalData from '../types/ModalData.ts';
       },
     ],
   })  
+
+   async function getLowerRegisterTextDataFetch() {
+      try{
+        const { data : response, error : error} =  await useSiteContentService().getSiteContentByIdFetch('1', '666');
+     
+        if(error.value) throw error; 
+        else{
+          if(response.value) lowerRegisterText.value = response.value.content;
+          useToastSuccess('Data Retrieved');
+        }
+      }
+      catch(error){
+        useToastError('Error '+error.value.status+' - '+error.value.statusText);
+      }
+  }
 
   async function getLowerRegisterTextData() {
       try{

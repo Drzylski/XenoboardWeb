@@ -26,10 +26,7 @@
         <BCol class="col-12 card-padding p-5" >
           <div class="">
             <h1 class="p-lg-5 p-md-4 p-sm-1 pb-4">Товарищ! Капитализм может идти на хуй.</h1>
-            <h2 class="p-lg-5 p-md-4 p-sm-1">We do not do anything with your data except for the purposes of handling your account and services on our site that your account interacts with. 
-              We don't sell, profit from, or do anything else with data. None of that BS. For better privacy, consider using the DuckDuckgo browser, install uBlock Origin, 
-              Privacy Possum, Privacy Badger, disable permissions such as location, data sharing, etc, and disable third party cookies. 
-              A vpn can help as well. Turn off targeted advertisements. Screw ads. Don't use any apps owned by Google, Meta, or Microsoft. Don't be logged into said services unless needed</h2>
+            <h2 class="" v-html="privacyText"></h2>
           </div>
         </BCol>
       </BRow>
@@ -39,8 +36,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead, useSeoMeta } from 'nuxt/app';
+import { useFetch, useHead, useSeoMeta } from 'nuxt/app';
 import BreadCrumbs from '../components/BreadCrumbs.vue';
+import { useToastSuccess } from '../composables/ToastSuccess.ts';
+import { useToastError } from '../composables/ToastError.ts';
 
 const breadcrumbsList = ref<IBreadCrumb[]>([{path: 'Privacy', title: 'Privacy'}]);
 
@@ -62,6 +61,29 @@ useSeoMeta({
   articlePublishedTime: '2025-05-05',
   articleModifiedTime: '2026-03-26',
 })
+
+const privacyText = ref<string>('Loading...');
+
+//Get legal text
+async function getPrivacyContentText() {
+      try{
+        const { data : response, error : error} =  await useFetch('/api/privacy');
+     
+        if(error.value) throw error; 
+        else{
+          if(response.value) {privacyText.value = response.value.content;
+            //useToastSuccess('Data Retrieved');
+          }
+        }
+
+        //console.log(privacyText.value);
+      }
+      catch(error){
+        useToastError('Error '+error.value.status+' - '+error.value.statusText);
+      }
+  }
+
+  getPrivacyContentText();
 
 </script>
 

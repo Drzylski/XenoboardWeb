@@ -6,7 +6,7 @@
     <BRow class="ps-3 pe-3 pb-3">
       <BCol class="col-12" >
         <div style="text-align: center;">
-          <h6 >Below is a bunch of legal mumbo jumbo explaining legal stuff with the site.</h6>
+          <h6 v-html="legalHeader"></h6>
         </div>
       </BCol>
     </BRow>
@@ -25,9 +25,7 @@
       <BRow class="p-4  grey-body ">
         <BCol class="col-12 card-padding p-5" >
           <div class="">
-            The Xenoboard site is for educational purposes only. We are not responsible for any damages and offer no warranties of any kind. All images, videos, names that are not our original works
-            are property of their respective owners and we make no claim to own this content. said content is used as fair use. If issues arise from us hosting such content, please contact us. The Xenoboard site and all original work is property of Damian Zylski and reproduction is 
-            prohibited. 
+            {{ legalText }}
           </div>
         </BCol>
       </BRow>
@@ -37,8 +35,13 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead, useSeoMeta } from 'nuxt/app';
+import { useFetch, useHead, useSeoMeta } from 'nuxt/app';
 import BreadCrumbs from '../components/BreadCrumbs.vue';
+import { useFetchRequest } from '../composables/FetchRequest.ts';
+import HttpMethod from '../utils/HttpMethod.ts';
+import { useToastSuccess } from '../composables/ToastSuccess.ts';
+import { useToastError } from '../composables/ToastError.ts';
+import { useSiteContentService } from '../services/SiteContentService.ts';
 
 const breadcrumbsList = ref<IBreadCrumb[]>([{path: 'Legal', title: 'Legal'}]);
 
@@ -60,6 +63,43 @@ useSeoMeta({
   articlePublishedTime: '2025-05-05',
   articleModifiedTime: '2026-03-26',
 })
+
+const legalText = ref<string>('Loading...');
+const legalHeader = ref<string>('Loading...');
+
+//Get legal text
+async function getLegalHeaderText() {
+      try{
+        const { data : response, error : error} =  await useSiteContentService().getSiteContentByIdFetch('3', '666');
+     
+        if(error.value) throw error; 
+        else{
+          if(response.value) legalHeader.value = response.value.content;
+          //useToastSuccess('Data Retrieved');
+        }
+      }
+      catch(error){
+        useToastError('Error '+error.value.status+' - '+error.value.statusText);
+      }
+  }
+
+//Get legal text
+async function getLegalText() {
+      try{
+        const { data : response, error : error} =  await useFetch('/api/legal');
+     
+        if(error.value) throw error; 
+        else{
+          if(response.value) {legalText.value = response.value.content;}
+        }
+      }
+      catch(error){
+        useToastError('Error '+error.value.status+' - '+error.value.statusText);
+      }
+  }
+
+  getLegalHeaderText();
+  getLegalText();
 
 </script>
 
